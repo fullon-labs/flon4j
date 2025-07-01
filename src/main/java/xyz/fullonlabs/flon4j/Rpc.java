@@ -1,14 +1,7 @@
 package xyz.fullonlabs.flon4j;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.TimeZone;
+import java.util.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -211,7 +204,7 @@ public class Rpc {
 	 * @return
 	 * @throws Exception
 	 */
-	public Transaction createAccount(String pk, String creator, String newAccount, String owner, String active, String quantity) throws Exception {
+	public Transaction createAccount(String pk, String creator, String newAccount, String owner, String active, String buyGasAmount) throws Exception {
 		// get chain info
 		ChainInfo info = getChainInfo();
 		// get block info
@@ -226,7 +219,6 @@ public class Rpc {
 		tx.setDelay_sec(0l);
 		// actions
 		List<TxAction> actions = new ArrayList<>();
-		tx.setActions(actions);
 		// create
 		Map<String, Object> createMap = new LinkedHashMap<>();
 		createMap.put("creator", creator);
@@ -235,27 +227,51 @@ public class Rpc {
 		createMap.put("active", active);
 		TxAction createAction = new TxAction(creator, "flon", "newaccount", createMap);
 		actions.add(createAction);
+
 		// buygas
-		Map<String, Object> buyMap = new LinkedHashMap<>();
+	/*	Map<String, Object> buyMap = new LinkedHashMap<>();
 		buyMap.put("payer", creator);
 		buyMap.put("receiver", newAccount);
-		buyMap.put("quant", new DataParam(quantity, DataType.asset, Action.buyGas).getValue());
-
+		buyMap.put("quant", new DataParam(buyGasAmount, DataType.asset, Action.buyGas).getValue());
 		TxAction buyAction = new TxAction(creator, "flon", "buygas", buyMap);
 		actions.add(buyAction);
+		tx.setActions(actions);*/
+
+		// data
+		Map<String, Object> dataMap = new LinkedHashMap<>();
+		dataMap.put("from", creator);
+		dataMap.put("to", newAccount);
+		dataMap.put("quantity", new DataParam(buyGasAmount, DataType.asset, Action.transfer).getValue());
+		dataMap.put("memo", "");
+		// action
+		TxAction action = new TxAction(creator, "flon.token", "transfer", dataMap);
+		actions.add(action);
+		tx.setActions(actions);
+
+		System.out.println("签名私钥: " + pk);
+		System.out.println("对应公钥: " + Ecc.privateToPublic(pk));
 		// sgin
 		String sign = Ecc.signTransaction(pk, new TxSign(info.getChainId(), tx));
+
+//		byte[] digest = Ecc.getTxDigest(info.getChainId(), tx); // 若没有 getTxDigest 方法，你需要自己算 SHA256(序列化tx)
+//		String recoveredPubKey = Ecc.recoverPublicKey(sign, digest);
+//		System.out.println("由签名恢复出的公钥: " + recoveredPubKey);
 		// data parse
 		String accountData = Ese.parseAccountData(creator, newAccount, owner, active);
 		createAction.setData(accountData);
 		// data parse
-		String gasData = Ese.parseBuyGasData(creator, newAccount, quantity);
-		buyAction.setData(gasData);
+//		String gasData = Ese.parseBuyGasData(creator, newAccount, buyGasAmount);
+//		buyAction.setData(gasData);
+
+		// data parse
+		String data = Ecc.parseTransferData(creator, newAccount, buyGasAmount, "");
+		// reset data
+		action.setData(data);
+
 		// reset expiration
 		tx.setExpiration(dateFormatter.format(new Date(1000 * Long.parseLong(tx.getExpiration().toString()))));
 		return pushTransaction("none", tx, new String[] { sign });
 	}
-
 
 	/**
 	 * 

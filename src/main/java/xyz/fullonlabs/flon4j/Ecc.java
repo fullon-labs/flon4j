@@ -1,5 +1,6 @@
 package xyz.fullonlabs.flon4j;
 
+import java.security.MessageDigest;
 import java.util.List;
 
 import xyz.fullonlabs.flon4j.api.vo.transaction.push.TxSign;
@@ -116,4 +117,5 @@ public class Ecc {
 	public static String parseCloseData(String owner, String symbol) {
 		return Ese.parseCloseData(owner, symbol);
 	}
+
 }

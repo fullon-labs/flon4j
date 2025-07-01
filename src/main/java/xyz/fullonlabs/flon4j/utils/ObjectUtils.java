@@ -96,6 +96,8 @@ public class ObjectUtils {
 					bf.concat(ByteUtils.writeName(obj.toString()));
 				} else if ("quantity".equals(key)) {
 					bf.concat(ByteUtils.writerAsset(obj.toString()));
+				} else if ("quant".equals(key)) {
+					bf.concat(ByteUtils.writerAsset(obj.toString()));
 				} else if ("memo".equals(key)) {
 					bf.concat(ByteUtils.writerString(obj.toString()));
 				} else if ("creator".equals(key)) {

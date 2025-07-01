@@ -43,29 +43,30 @@ public class Test {
 
 		Rpc rpc = new Rpc("https://t.flonscan.io");  // 测试网RPC
 
-		// 1. 转账
-		System.out.println("============= 转账 ===============");
-		try {
-			Transaction t1 = rpc.transfer(
-					"5Kd9DBBiUXxFg1tiJvn9p7uU6R1RegbD9wQ9WknvRLoiVoosp7g",
-					"flon.token",
-					"testtest",
-					"testtesttest",
-					"0.28210000 FLON", ""
-			);
-			System.out.println("转账成功 = " + t1.getTransactionId()+" \n ");
-		} catch(Exception ex) {
-			// 建议输出原始 response body 便于链端错误排查
-			ex.printStackTrace();
-		}
+//		// 1. 转账
+//		System.out.println("============= 转账 ===============");
+//		try {
+//			Transaction t1 = rpc.transfer(
+//					"5JpjyFBd4VGeSQ9LUP4dGaaxoiofUGcMWoLihJZfrQbpp9nxq7X",
+//					"flon.token",
+//					"testtest",
+//					"flontest",
+//					"0.28210000 FLON", ""
+//			);
+//			System.out.println("转账成功 = " + t1.getTransactionId()+" \n ");
+//		} catch(Exception ex) {
+//			// 建议输出原始 response body 便于链端错误排查
+//			ex.printStackTrace();
+//		}
 
+		System.out.println(Ecc.privateToPublic("5JpjyFBd4VGeSQ9LUP4dGaaxoiofUGcMWoLihJZfrQbpp9nxq7X"));
 		// 2. 创建账户
 		System.out.println("============= 创建账户===============");
 		try {
 			Transaction t2 = rpc.createAccount(
-					"5Kd9DBBiUXxFg1tiJvn9p7uU6R1RegbD9wQ9WknvRLoiVoosp7g",
+					"5JpjyFBd4VGeSQ9LUP4dGaaxoiofUGcMWoLihJZfrQbpp9nxq7X",
 					"testtest",
-					"testtesttesa",
+					"testtesttesb",
 					"FU7PowBS8TPatxjEhBDFqHkpGDCnPS3atB6fuQnzoCtjFJ6ykzeQ",
 					"FU7PowBS8TPatxjEhBDFqHkpGDCnPS3atB6fuQnzoCtjFJ6ykzeQ",
 					"0.01000000 FLON"

@@ -229,24 +229,24 @@ public class Rpc {
 		actions.add(createAction);
 
 		// buygas
-	/*	Map<String, Object> buyMap = new LinkedHashMap<>();
+		Map<String, Object> buyMap = new LinkedHashMap<>();
 		buyMap.put("payer", creator);
 		buyMap.put("receiver", newAccount);
 		buyMap.put("quant", new DataParam(buyGasAmount, DataType.asset, Action.buyGas).getValue());
 		TxAction buyAction = new TxAction(creator, "flon", "buygas", buyMap);
 		actions.add(buyAction);
-		tx.setActions(actions);*/
+		tx.setActions(actions);
 
 		// data
-		Map<String, Object> dataMap = new LinkedHashMap<>();
-		dataMap.put("from", creator);
-		dataMap.put("to", newAccount);
-		dataMap.put("quantity", new DataParam(buyGasAmount, DataType.asset, Action.transfer).getValue());
-		dataMap.put("memo", "");
-		// action
-		TxAction action = new TxAction(creator, "flon.token", "transfer", dataMap);
-		actions.add(action);
-		tx.setActions(actions);
+//		Map<String, Object> dataMap = new LinkedHashMap<>();
+//		dataMap.put("from", creator);
+//		dataMap.put("to", newAccount);
+//		dataMap.put("quantity", new DataParam(buyGasAmount, DataType.asset, Action.transfer).getValue());
+//		dataMap.put("memo", "");
+//		// action
+//		TxAction action = new TxAction(creator, "flon.token", "transfer", dataMap);
+//		actions.add(action);
+//		tx.setActions(actions);
 
 		System.out.println("签名私钥: " + pk);
 		System.out.println("对应公钥: " + Ecc.privateToPublic(pk));
@@ -260,13 +260,13 @@ public class Rpc {
 		String accountData = Ese.parseAccountData(creator, newAccount, owner, active);
 		createAction.setData(accountData);
 		// data parse
-//		String gasData = Ese.parseBuyGasData(creator, newAccount, buyGasAmount);
-//		buyAction.setData(gasData);
+		String gasData = Ese.parseBuyGasData(creator, newAccount, buyGasAmount);
+		buyAction.setData(gasData);
 
-		// data parse
-		String data = Ecc.parseTransferData(creator, newAccount, buyGasAmount, "");
-		// reset data
-		action.setData(data);
+//		// data parse
+//		String data = Ecc.parseTransferData(creator, newAccount, buyGasAmount, "");
+//		// reset data
+//		action.setData(data);
 
 		// reset expiration
 		tx.setExpiration(dateFormatter.format(new Date(1000 * Long.parseLong(tx.getExpiration().toString()))));

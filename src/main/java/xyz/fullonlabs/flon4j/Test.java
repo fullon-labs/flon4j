@@ -66,7 +66,7 @@ public class Test {
 			Transaction t2 = rpc.createAccount(
 					"5JpjyFBd4VGeSQ9LUP4dGaaxoiofUGcMWoLihJZfrQbpp9nxq7X",
 					"testtest",
-					"testtesttesb",
+					"testtesttesc",
 					"FU7PowBS8TPatxjEhBDFqHkpGDCnPS3atB6fuQnzoCtjFJ6ykzeQ",
 					"FU7PowBS8TPatxjEhBDFqHkpGDCnPS3atB6fuQnzoCtjFJ6ykzeQ",
 					"0.01000000 FLON"

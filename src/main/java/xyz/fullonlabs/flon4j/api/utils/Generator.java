@@ -35,13 +35,27 @@ public class Generator {
 				return response.body();
 			} else {
 				ApiError apiError = getApiError(response);
-				throw new ApiException(apiError);
+
+				// 输出完整 body，帮助定位链上报错详情
+				String rawErrorBody = null;
+				try {
+					rawErrorBody = response.errorBody() != null ? response.errorBody().string() : null;
+				} catch (Exception ex) {
+					rawErrorBody = "errorBody 获取失败: " + ex.getMessage();
+				}
+
+				System.err.println("==[链错误捕获]==");
+				System.err.println("apiError: " + apiError.getMessage());
+				System.err.println("full errorBody: " + rawErrorBody);
+				return null;
+
+//				throw new ApiException(apiError); // 可以考虑把 body 传进异常
 			}
-		} catch (IOException e) {
+		} catch (Exception e) {
+			e.printStackTrace();
 			throw new ApiException(e);
 		}
 	}
-
 	private static ApiError getApiError(Response<?> response) throws IOException, ApiException {
 		return (ApiError) retrofit.responseBodyConverter(ApiError.class, new Annotation[0]).convert(response.errorBody());
 	}

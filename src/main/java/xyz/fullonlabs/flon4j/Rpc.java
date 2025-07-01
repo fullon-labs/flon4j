@@ -239,7 +239,7 @@ public class Rpc {
 		Map<String, Object> buyMap = new LinkedHashMap<>();
 		buyMap.put("payer", creator);
 		buyMap.put("receiver", newAccount);
-		buyMap.put("quantity", new DataParam(quantity, DataType.asset, Action.buyGas).getValue());
+		buyMap.put("quant", new DataParam(quantity, DataType.asset, Action.buyGas).getValue());
 
 		TxAction buyAction = new TxAction(creator, "flon", "buygas", buyMap);
 		actions.add(buyAction);

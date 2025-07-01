@@ -114,9 +114,9 @@ String data1 = Ecc.parseAccountData(
 
 ```
 
-# join eos open source 
+# join eos open source
 
-wechat hl_294944589
+tg: 
  
 # License
 

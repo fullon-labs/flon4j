@@ -116,7 +116,7 @@ String data1 = Ecc.parseAccountData(
 
 # join eos open source
 
-tg: 
+tg: https://t.me/flondao
  
 # License
 

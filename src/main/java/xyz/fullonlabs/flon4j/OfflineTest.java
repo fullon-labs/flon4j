@@ -53,7 +53,7 @@ public class OfflineTest {
 		String content = "";
 		try {
 			content = sign.transfer(params, "5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3", "eosio.token",
-					"eeeeeeeeeeee", "555555555551", "372.0993 EOS", "test");
+					"eeeeeeeeeeee", "555555555551", "372.0993 FLON", "test");
 			System.out.println(content);
 		} catch (Exception e) {
 			e.printStackTrace();

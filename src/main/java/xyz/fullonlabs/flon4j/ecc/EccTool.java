@@ -20,7 +20,7 @@ import xyz.fullonlabs.flon4j.utils.Sha;
  */
 public class EccTool {
 
-	public static final String address_prefix = "EOS";
+	public static final String address_prefix = "FU";
 
 	public static final Secp256k secp = new Secp256k();
 

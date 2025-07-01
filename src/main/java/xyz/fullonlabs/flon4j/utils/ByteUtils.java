@@ -369,7 +369,7 @@ public class ByteUtils {
 	 * @return
 	 */
 	private static byte[] writerKeyStr(String v) {
-		v = v.replace("EOS", "");
+		v = v.replace("FU", "");
 		byte[] b = Base58.decode(v);
 		b = ByteBuffer.allocate(b.length).order(ByteOrder.BIG_ENDIAN).put(b).array();
 		byte[] key = ByteUtils.copy(b, 0, b.length - 4);

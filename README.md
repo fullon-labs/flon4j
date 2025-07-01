@@ -1,6 +1,6 @@
 # flon4j
 
-flon 1.0.1 for java 
+flon-lib 1.0.0 for java 
 
 change writeName add writeUint64 support custom contract
 

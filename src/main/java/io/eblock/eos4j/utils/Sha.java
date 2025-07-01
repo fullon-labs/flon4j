@@ -1,4 +1,4 @@
-package io.eblock.eos4j.utils;
+package io.eblock.flon4j.utils;
 
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;

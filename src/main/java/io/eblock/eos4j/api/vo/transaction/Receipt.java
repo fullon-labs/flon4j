@@ -1,4 +1,4 @@
-package io.eblock.eos4j.api.vo.transaction;
+package io.eblock.flon4j.api.vo.transaction;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

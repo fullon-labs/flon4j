@@ -1,4 +1,4 @@
-package io.eblock.eos4j.ese;
+package io.eblock.flon4j.ese;
 
 /**
  * DataType

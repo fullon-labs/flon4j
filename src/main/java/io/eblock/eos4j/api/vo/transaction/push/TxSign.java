@@ -1,6 +1,6 @@
-package io.eblock.eos4j.api.vo.transaction.push;
+package io.eblock.flon4j.api.vo.transaction.push;
 
-import io.eblock.eos4j.api.vo.BaseVo;
+import io.eblock.flon4j.api.vo.BaseVo;
 
 /**
  * 

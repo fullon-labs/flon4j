@@ -1,4 +1,4 @@
-package io.eblock.eos4j.ecc;
+package io.eblock.flon4j.ecc;
 
 import java.math.BigInteger;
 

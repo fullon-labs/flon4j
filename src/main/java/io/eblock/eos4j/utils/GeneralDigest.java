@@ -1,4 +1,4 @@
-package io.eblock.eos4j.utils;
+package io.eblock.flon4j.utils;
 
 public abstract class GeneralDigest {
 	private static final int BYTE_LENGTH = 64;

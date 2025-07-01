@@ -1,12 +1,12 @@
-package io.eblock.eos4j;
+package io.eblock.flon4j;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import io.eblock.eos4j.api.exception.ApiException;
-import io.eblock.eos4j.api.vo.transaction.Transaction;
+import io.eblock.flon4j.api.exception.ApiException;
+import io.eblock.flon4j.api.vo.transaction.Transaction;
 
 public class Test {
 

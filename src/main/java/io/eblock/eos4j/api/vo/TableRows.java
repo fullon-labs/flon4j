@@ -1,4 +1,4 @@
-package io.eblock.eos4j.api.vo;
+package io.eblock.flon4j.api.vo;
 
 import java.util.List;
 import java.util.Map;

@@ -1,8 +1,8 @@
-package io.eblock.eos4j.ecc;
+package io.eblock.flon4j.ecc;
 
 import java.math.BigInteger;
 
-import io.eblock.eos4j.utils.Hex;
+import io.eblock.flon4j.utils.Hex;
 
 /**
  * Curve

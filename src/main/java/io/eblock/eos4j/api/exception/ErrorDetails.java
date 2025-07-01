@@ -1,4 +1,4 @@
-package io.eblock.eos4j.api.exception;
+package io.eblock.flon4j.api.exception;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

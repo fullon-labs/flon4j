@@ -1,4 +1,4 @@
-package io.eblock.eos4j.utils;
+package io.eblock.flon4j.utils;
 
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
@@ -382,7 +382,7 @@ public class ByteUtils {
 	 * @param key
 	 */
 	public static byte[] writerKey(String key) {
-		io.eblock.eos4j.utils.ByteBuffer bf = new io.eblock.eos4j.utils.ByteBuffer();
+		io.eblock.flon4j.utils.ByteBuffer bf = new io.eblock.flon4j.utils.ByteBuffer();
 		bf.concat(writerUnit32("1"));
 		bf.concat(writerVarint32("1"));
 		bf.concat(writerVarint32("0"));

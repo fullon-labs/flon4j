@@ -1,6 +1,6 @@
-# eos4j
+# flon4j
 
-eosio 1.0.1 for java 
+flon 1.0.1 for java 
 
 change writeName add writeUint64 support custom contract
 
@@ -17,7 +17,7 @@ change writeName add writeUint64 support custom contract
  
  ```
 OfflineSign sign = new OfflineSign();
-String content =sign.transfer(params,"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3","eosio.token","eeeeeeeeeeee", "555555555551", "372.0993 EOS", "test");
+String content =sign.transfer(params,"5KViPHaWrpRHmChKkD9i1gUGLVNC6eRSHzP33ZadFuBuGeecLFz","flon.token","eeeeeeeeeeee", "555555555551", "372.01234567 FLON", "test");
 	
  ```
 
@@ -35,11 +35,11 @@ String content =sign.transfer(params,"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXt
  */
 
  rpc.transfer(
- 	"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3",
- 	"eosio.token",
- 	"eosio",
- 	"eosio.token",
- 	"12.2821 SYS",
+ 	"5KViPHaWrpRHmChKkD9i1gUGLVNC6eRSHzP33ZadFuBuGeecLFz",
+ 	"flon.token",
+ 	"flonian",
+ 	"flonflonflon",
+ 	"100 FLON",
  	"");
 
 ```
@@ -53,21 +53,13 @@ String content =sign.transfer(params,"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXt
  * @param newAccount 新账户名
  * @param owner 公钥
  * @param active 公钥
- * @param buyRam ram
- * @param stakeNetQuantity 网络抵押
- * @param stakeCpuQuantity CPU抵押
- * @param transfer 抵押所有者，0自己，1对方
  */
  rpc.createAccount(
- 	"5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3", 
- 	"eosio",
+ 	"5KViPHaWrpRHmChKkD9i1gUGLVNC6eRSHzP33ZadFuBuGeecLFz", 
+ 	"flonian",
  	"newaccount22",
- 	"EOS8eAX54cJtAngV2V22WZhRCW7e4sTAZz1mC5U22vp8mAGuFdMXx",
- 	"EOS8eAX54cJtAngV2V22WZhRCW7e4sTAZz1mC5U22vp8mAGuFdMXx", 
- 	8192l, 
- 	"1.0000 SYS",
- 	"1.0000 SYS",
- 	0l);
+ 	"FU53TXSgCaU6uKrCbiZj3nazPkpCmYLZfhVhLRaCtvjXiwLHMCjq",
+ 	"FU53TXSgCaU6uKrCbiZj3nazPkpCmYLZfhVhLRaCtvjXiwLHMCjq" );
  	
 ```
 ## seedPrivate
@@ -115,10 +107,10 @@ String data = Ecc.parseTransferData(
 
 //account parse
 String data1 = Ecc.parseAccountData(
-	"eosio",
-	"espritbloc1.",
-	"EOS8eAX54cJtAngV2V22WZhRCW7e4sTAZz1mC5U22vp8mAGuFdMXx",
-	"EOS8FPooohZiiCAYXahWCQRxgXXzUbS2gNELAeYCUgGdDMbd2FHQT");
+	"flon",
+	"flonian",
+	"FU53TXSgCaU6uKrCbiZj3nazPkpCmYLZfhVhLRaCtvjXiwLHMCjq",
+	"FU53TXSgCaU6uKrCbiZj3nazPkpCmYLZfhVhLRaCtvjXiwLHMCjq");
 
 ```
 
@@ -128,4 +120,4 @@ wechat hl_294944589
  
 # License
 
-eos4j is released under GNU/GPL Version 3
+flon4j is released under GNU/GPL Version 3

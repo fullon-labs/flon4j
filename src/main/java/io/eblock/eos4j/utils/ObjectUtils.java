@@ -1,4 +1,4 @@
-package io.eblock.eos4j.utils;
+package io.eblock.flon4j.utils;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -7,7 +7,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import io.eblock.eos4j.api.vo.BaseVo;
+import io.eblock.flon4j.api.vo.BaseVo;
 
 public class ObjectUtils {
 

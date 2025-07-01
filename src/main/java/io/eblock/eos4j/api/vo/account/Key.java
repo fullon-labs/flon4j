@@ -1,4 +1,4 @@
-package io.eblock.eos4j.api.vo.account;
+package io.eblock.flon4j.api.vo.account;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

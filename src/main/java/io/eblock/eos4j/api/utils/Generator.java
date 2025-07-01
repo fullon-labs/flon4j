@@ -1,10 +1,10 @@
-package io.eblock.eos4j.api.utils;
+package io.eblock.flon4j.api.utils;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 
-import io.eblock.eos4j.api.exception.ApiError;
-import io.eblock.eos4j.api.exception.ApiException;
+import io.eblock.flon4j.api.exception.ApiError;
+import io.eblock.flon4j.api.exception.ApiException;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Response;

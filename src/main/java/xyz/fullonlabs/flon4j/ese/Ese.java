@@ -93,35 +93,12 @@ public class Ese {
 	}
 
 	/**
-	 * parseBuyRamData
-	 * 
-	 * @param datas
-	 * @return
-	 */
-	public static String parseDelegateData(String from, String receiver, String stakeNetQuantity,
-			String stakeCpuQuantity, int transfer) {
-
-		DataParam[] datas = new DataParam[] { new DataParam(from, DataType.name, Action.delegate),
-				new DataParam(receiver, DataType.name, Action.delegate),
-				new DataParam(stakeNetQuantity, DataType.asset, Action.delegate),
-				new DataParam(stakeCpuQuantity, DataType.asset, Action.delegate),
-				new DataParam(String.valueOf(transfer), DataType.varint32, Action.delegate)
-
-		};
-		byte[] allbyte = new byte[] {};
-		for (DataParam value : datas) {
-			allbyte = ByteUtils.concat(allbyte, value.seria());
-		}
-		return Hex.bytesToHexString(allbyte);
-	}
-
-	/**
 	 * parseTransferData
 	 * 
 	 * @param datas
 	 * @return
 	 */
-	public static String parseBuyRamData(String payer, String receiver, Long bytes) {
+	public static String parseBuyGasData(String payer, String receiver, Long bytes) {
 
 		DataParam[] datas = new DataParam[] { new DataParam(payer, DataType.name, Action.ram),
 				new DataParam(receiver, DataType.name, Action.ram),

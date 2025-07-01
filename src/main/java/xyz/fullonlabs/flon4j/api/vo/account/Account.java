@@ -65,7 +65,6 @@ public class Account {
 	@JsonProperty("eosio_any_linked_actions")
 	private List<Object> eosioAnyLinkedActions;
 
-	// ========== 内部类区分新老结构 ==========
 
 	@JsonIgnoreProperties(ignoreUnknown = true)
 	public static class Limit {
@@ -96,64 +95,6 @@ public class Account {
 		public void setUsed(Long used) { this.used = used; }
 		public String getMax() { return max; }
 		public void setMax(String max) { this.max = max; }
-	}
-
-	@JsonIgnoreProperties(ignoreUnknown = true)
-	public static class Permission {
-		@JsonProperty("perm_name")
-		private String permName;
-		@JsonProperty("parent")
-		private String parent;
-		@JsonProperty("required_auth")
-		private RequiredAuth requiredAuth;
-		@JsonProperty("linked_actions")
-		private List<Object> linkedActions;
-
-		// getter/setter
-		public String getPermName() { return permName; }
-		public void setPermName(String permName) { this.permName = permName; }
-		public String getParent() { return parent; }
-		public void setParent(String parent) { this.parent = parent; }
-		public RequiredAuth getRequiredAuth() { return requiredAuth; }
-		public void setRequiredAuth(RequiredAuth requiredAuth) { this.requiredAuth = requiredAuth; }
-		public List<Object> getLinkedActions() { return linkedActions; }
-		public void setLinkedActions(List<Object> linkedActions) { this.linkedActions = linkedActions; }
-
-		@JsonIgnoreProperties(ignoreUnknown = true)
-		public static class RequiredAuth {
-			@JsonProperty("threshold")
-			private Integer threshold;
-			@JsonProperty("keys")
-			private List<Key> keys;
-			@JsonProperty("accounts")
-			private List<Object> accounts;
-			@JsonProperty("waits")
-			private List<Object> waits;
-
-			// getter/setter
-			public Integer getThreshold() { return threshold; }
-			public void setThreshold(Integer threshold) { this.threshold = threshold; }
-			public List<Key> getKeys() { return keys; }
-			public void setKeys(List<Key> keys) { this.keys = keys; }
-			public List<Object> getAccounts() { return accounts; }
-			public void setAccounts(List<Object> accounts) { this.accounts = accounts; }
-			public List<Object> getWaits() { return waits; }
-			public void setWaits(List<Object> waits) { this.waits = waits; }
-
-			@JsonIgnoreProperties(ignoreUnknown = true)
-			public static class Key {
-				@JsonProperty("key")
-				private String key;
-				@JsonProperty("weight")
-				private Integer weight;
-
-				// getter/setter
-				public String getKey() { return key; }
-				public void setKey(String key) { this.key = key; }
-				public Integer getWeight() { return weight; }
-				public void setWeight(Integer weight) { this.weight = weight; }
-			}
-		}
 	}
 
 	// =========== getter/setter ===========

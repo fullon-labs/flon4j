@@ -114,9 +114,9 @@ String data1 = Ecc.parseAccountData(
 
 ```
 
-# join eos open source
+# join FullOn community
 
-tg: https://t.me/flondao
+- `Telegram`: https://t.me/flondao
  
 # License
 

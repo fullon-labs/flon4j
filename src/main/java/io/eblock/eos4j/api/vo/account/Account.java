@@ -27,25 +27,6 @@ public class Account {
 	@JsonProperty("core_liquid_balance")
 	private String coreLiquidBalance;
 
-	// ============== 老资源结构兼容 ==============
-	@JsonProperty("ram_quota")
-	private Long ramQuota;
-
-	@JsonProperty("ram_usage")
-	private Long ramUsage;
-
-	@JsonProperty("net_weight")
-	private Long netWeight;
-
-	@JsonProperty("cpu_weight")
-	private Long cpuWeight;
-
-	@JsonProperty("net_limit")
-	private Limit netLimit;
-
-	@JsonProperty("cpu_limit")
-	private Limit cpuLimit;
-
 	// ============== 新资源结构兼容 ==============
 	@JsonProperty("is_res_unlimited")
 	private Boolean isResUnlimited;
@@ -189,18 +170,6 @@ public class Account {
 	public void setCreator(String creator) { this.creator = creator; }
 	public String getCoreLiquidBalance() { return coreLiquidBalance; }
 	public void setCoreLiquidBalance(String coreLiquidBalance) { this.coreLiquidBalance = coreLiquidBalance; }
-	public Long getRamQuota() { return ramQuota; }
-	public void setRamQuota(Long ramQuota) { this.ramQuota = ramQuota; }
-	public Long getRamUsage() { return ramUsage; }
-	public void setRamUsage(Long ramUsage) { this.ramUsage = ramUsage; }
-	public Long getNetWeight() { return netWeight; }
-	public void setNetWeight(Long netWeight) { this.netWeight = netWeight; }
-	public Long getCpuWeight() { return cpuWeight; }
-	public void setCpuWeight(Long cpuWeight) { this.cpuWeight = cpuWeight; }
-	public Limit getNetLimit() { return netLimit; }
-	public void setNetLimit(Limit netLimit) { this.netLimit = netLimit; }
-	public Limit getCpuLimit() { return cpuLimit; }
-	public void setCpuLimit(Limit cpuLimit) { this.cpuLimit = cpuLimit; }
 	public Boolean getIsResUnlimited() { return isResUnlimited; }
 	public void setIsResUnlimited(Boolean isResUnlimited) { this.isResUnlimited = isResUnlimited; }
 	public Long getGasReserved() { return gasReserved; }

@@ -105,7 +105,7 @@ public class OfflineSign {
 	 * @throws Exception
 	 */
 	public String createAccount(SignParam signParam, String pk, String creator, String newAccount, String owner,
-			String active, Long buyRam) throws Exception {
+			String active, String  quantity) throws Exception {
 		Tx tx = new Tx();
 		tx.setExpiration(signParam.getHeadBlockTime().getTime() / 1000 + signParam.getExp());
 		tx.setRef_block_num(signParam.getLastIrreversibleBlockNum());
@@ -124,13 +124,14 @@ public class OfflineSign {
 		createMap.put("active", active);
 		TxAction createAction = new TxAction(creator, "flon", "newaccount", createMap);
 		actions.add(createAction);
-		// buyram
-		// Map<String, Object> buyMap = new LinkedHashMap<>();
-		// buyMap.put("payer", creator);
-		// buyMap.put("receiver", newAccount);
-		// buyMap.put("bytes", buyRam);
-		// TxAction buyAction = new TxAction(creator, "flonian", "buyrambytes", buyMap);
-		// actions.add(buyAction);
+		// buygas
+		Map<String, Object> buyMap = new LinkedHashMap<>();
+		buyMap.put("payer", creator);
+		buyMap.put("receiver", newAccount);
+		buyMap.put("quantity", new DataParam(quantity, DataType.asset, Action.buyGas).getValue());
+
+		TxAction buyAction = new TxAction(creator, "flon", "buygas", buyMap);
+		actions.add(buyAction);
 		// sgin
 		String sign = Ecc.signTransaction(pk, new TxSign(signParam.getChainId(), tx));
 		// data parse

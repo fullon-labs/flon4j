@@ -36,12 +36,30 @@ public class Ese {
 		// }
 		return Hex.bytesToHexString(allbyte);
 	}
-	
+
+	/**
+	 * parseTransferData
+	 *
+	 * @param quantity
+	 * @return
+	 */
+	public static String parseBuyGasData(String payer, String receiver, String quantity) {
+
+		DataParam[] datas = new DataParam[] { new DataParam(payer, DataType.name, Action.buyGas),
+				new DataParam(receiver, DataType.name, Action.buyGas),
+				new DataParam(quantity, DataType.asset, Action.buyGas)
+		};
+		byte[] allbyte = new byte[] {};
+		for (DataParam value : datas) {
+			allbyte = ByteUtils.concat(allbyte, value.seria());
+		}
+		return Hex.bytesToHexString(allbyte);
+	}
 
 	/**
 	 * parseTransferData
 	 * 
-	 * @param datas
+	 * @param producers
 	 * @return
 	 */
 	public static String parseVoteProducerData(String voter, String proxy, List<String> producers) {
@@ -92,25 +110,7 @@ public class Ese {
 		return Hex.bytesToHexString(allbyte);
 	}
 
-	/**
-	 * parseTransferData
-	 * 
-	 * @param datas
-	 * @return
-	 */
-	public static String parseBuyGasData(String payer, String receiver, Long bytes) {
 
-		DataParam[] datas = new DataParam[] { new DataParam(payer, DataType.name, Action.ram),
-				new DataParam(receiver, DataType.name, Action.ram),
-				new DataParam(String.valueOf(bytes), DataType.unit32, Action.ram)
-
-		};
-		byte[] allbyte = new byte[] {};
-		for (DataParam value : datas) {
-			allbyte = ByteUtils.concat(allbyte, value.seria());
-		}
-		return Hex.bytesToHexString(allbyte);
-	}
 	
 	/**
 	 * parseCloseData

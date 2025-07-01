@@ -206,12 +206,12 @@ public class Rpc {
 	 *            公钥
 	 * @param active
 	 *            公钥
-	 * @param buyRam
+	 * @param buyGasAmount
 	 *            ram
 	 * @return
 	 * @throws Exception
 	 */
-	public Transaction createAccount(String pk, String creator, String newAccount, String owner, String active, Long buyGasAmount) throws Exception {
+	public Transaction createAccount(String pk, String creator, String newAccount, String owner, String active, String quantity) throws Exception {
 		// get chain info
 		ChainInfo info = getChainInfo();
 		// get block info
@@ -235,11 +235,12 @@ public class Rpc {
 		createMap.put("active", active);
 		TxAction createAction = new TxAction(creator, "flon", "newaccount", createMap);
 		actions.add(createAction);
-		// buyrap
+		// buygas
 		Map<String, Object> buyMap = new LinkedHashMap<>();
 		buyMap.put("payer", creator);
 		buyMap.put("receiver", newAccount);
-		buyMap.put("bytes", buyGasAmount);
+		buyMap.put("quantity", new DataParam(quantity, DataType.asset, Action.buyGas).getValue());
+
 		TxAction buyAction = new TxAction(creator, "flon", "buygas", buyMap);
 		actions.add(buyAction);
 		// sgin
@@ -248,7 +249,7 @@ public class Rpc {
 		String accountData = Ese.parseAccountData(creator, newAccount, owner, active);
 		createAction.setData(accountData);
 		// data parse
-		String gasData = Ese.parseBuyGasData(creator, newAccount, buyGasAmount);
+		String gasData = Ese.parseBuyGasData(creator, newAccount, quantity);
 		buyAction.setData(gasData);
 		// reset expiration
 		tx.setExpiration(dateFormatter.format(new Date(1000 * Long.parseLong(tx.getExpiration().toString()))));

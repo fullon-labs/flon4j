@@ -15,7 +15,7 @@ public class DataParam {
 		this.value = value;
 		this.type = type;
 		if (type == DataType.asset || type == DataType.symbol ) {
-			if (action == action.transfer || action == action.delegate || action == action.close) {
+			if (action == action.transfer || action == action.delegate || action == action.close || action == action.buyGas) {
 				String vs[] = value.split(" ");
 				if (vs.length < 2) {throw new EException("error", "quantity error");}
 				String ammount = vs[0];

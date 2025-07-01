@@ -106,41 +106,6 @@ public class Ecc {
 	public static String parseAccountData(String creator, String name, String onwer, String active) {
 		return Ese.parseAccountData(creator, name, onwer, active);
 	}
-
-	/**
-	 * 购买ram数据序列化
-	 * 
-	 * @param payer
-	 *            付款账户
-	 * @param receiver
-	 *            接收账户
-	 * @param bytes
-	 *            购买字节数量
-	 * @return
-	 */
-	public static String parseBuyRamData(String payer, String receiver, Long bytes) {
-		return Ese.parseBuyRamData(payer, receiver, bytes);
-	}
-
-	/**
-	 * 抵押数据序列化
-	 * 
-	 * @param from
-	 *            抵押账户
-	 * @param receiver
-	 *            接受账户
-	 * @param stakeNetQuantity
-	 *            网络抵押数量和币种
-	 * @param stakeCpuQuantity
-	 *            CPU抵押数量和币种
-	 * @param transfer
-	 *            是否讲抵押资产转送给对方，0自己所有，1对方所有
-	 * @return
-	 */
-	public static String parseBuyRamData(String from, String receiver, String stakeNetQuantity, String stakeCpuQuantity,
-			int transfer) {
-		return Ese.parseDelegateData(from, receiver, stakeNetQuantity, stakeCpuQuantity, transfer);
-	}
 	
 	/**
 	 * 关闭token

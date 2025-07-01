@@ -15,6 +15,12 @@ public class TableRowsReq {
 
 	private int limit = 10;
 
+	private Integer index_position;
+
+	private String lower_bound;
+
+	private String upper_bound;
+
 	public String getCode() {
 		return code;
 	}
@@ -55,4 +61,27 @@ public class TableRowsReq {
 		this.json = json;
 	}
 
+    public Integer getIndex_position() {
+        return index_position;
+    }
+
+    public void setIndex_position(Integer index_position) {
+        this.index_position = index_position;
+    }
+
+    public String getLower_bound() {
+        return lower_bound;
+    }
+
+    public void setLower_bound(String lower_bound) {
+        this.lower_bound = lower_bound;
+    }
+
+    public String getUpper_bound() {
+        return upper_bound;
+    }
+
+    public void setUpper_bound(String upper_bound) {
+        this.upper_bound = upper_bound;
+    }
 }

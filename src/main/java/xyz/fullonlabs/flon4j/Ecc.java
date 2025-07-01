@@ -9,7 +9,7 @@ import xyz.fullonlabs.flon4j.ese.Ese;
 /**
  * Ecc,用户生成公私钥，签名，数据序列化
  * 
- * @author espritblock http://eblock.io
+ * @author fullonlabs https://fullonlabs.xyz
  *
  */
 public class Ecc {

@@ -9,7 +9,7 @@ import xyz.fullonlabs.flon4j.api.vo.BaseVo;
 
 /**
  * 
- * @author espritblock http://eblock.io
+ * @author fullonlabs https://fullonlabs.xyz
  *
  */
 @JsonIgnoreProperties(ignoreUnknown = true)

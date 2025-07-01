@@ -2,7 +2,7 @@ package xyz.fullonlabs.flon4j.api.exception;
 
 /**
  * 
- * @author espritblock http://eblock.io
+ * @author fullonlabs https://fullonlabs.xyz
  *
  */
 public class Error {

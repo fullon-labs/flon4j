@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 /**
  * 
- * @author espritblock http://eblock.io
+ * @author fullonlabs https://fullonlabs.xyz
  *
  */
 public class ByteUtils {

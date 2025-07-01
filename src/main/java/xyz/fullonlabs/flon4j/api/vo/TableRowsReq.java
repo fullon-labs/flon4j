@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TableRowsReq {
 
-	private String code = "eosio";
+	private String code = "flon";
 
 	private String scope;
 

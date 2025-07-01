@@ -234,14 +234,14 @@ public class Rpc {
 		createMap.put("name", newAccount);
 		createMap.put("owner", owner);
 		createMap.put("active", active);
-		TxAction createAction = new TxAction(creator, "eosio", "newaccount", createMap);
+		TxAction createAction = new TxAction(creator, "flon", "newaccount", createMap);
 		actions.add(createAction);
 		// buyrap
 		Map<String, Object> buyMap = new LinkedHashMap<>();
 		buyMap.put("payer", creator);
 		buyMap.put("receiver", newAccount);
 		buyMap.put("bytes", buyRam);
-		TxAction buyAction = new TxAction(creator, "eosio", "buyrambytes", buyMap);
+		TxAction buyAction = new TxAction(creator, "flon", "buyrambytes", buyMap);
 		actions.add(buyAction);
 		// sgin
 		String sign = Ecc.signTransaction(pk, new TxSign(info.getChainId(), tx));
@@ -307,14 +307,14 @@ public class Rpc {
 		createMap.put("name", newAccount);
 		createMap.put("owner", owner);
 		createMap.put("active", active);
-		TxAction createAction = new TxAction(creator, "eosio", "newaccount", createMap);
+		TxAction createAction = new TxAction(creator, "flon", "newaccount", createMap);
 		actions.add(createAction);
 		// buyrap
 		Map<String, Object> buyMap = new LinkedHashMap<>();
 		buyMap.put("payer", creator);
 		buyMap.put("receiver", newAccount);
 		buyMap.put("bytes", buyRam);
-		TxAction buyAction = new TxAction(creator, "eosio", "buyrambytes", buyMap);
+		TxAction buyAction = new TxAction(creator, "flon", "buyrambytes", buyMap);
 		actions.add(buyAction);
 		// buyrap
 		Map<String, Object> delMap = new LinkedHashMap<>();
@@ -323,7 +323,7 @@ public class Rpc {
 		delMap.put("stake_net_quantity", new DataParam(stakeNetQuantity, DataType.asset, Action.delegate).getValue());
 		delMap.put("stake_cpu_quantity", new DataParam(stakeCpuQuantity, DataType.asset, Action.delegate).getValue());
 		delMap.put("transfer", transfer);
-		TxAction delAction = new TxAction(creator, "eosio", "delegatebw", delMap);
+		TxAction delAction = new TxAction(creator, "flon", "delegatebw", delMap);
 		actions.add(delAction);
 		// // sgin
 		String sign = Ecc.signTransaction(pk, new TxSign(info.getChainId(), tx));
@@ -374,7 +374,7 @@ public class Rpc {
 		dataMap.put("proxy", proxy);
 		dataMap.put("producers",producers);
 		// action
-		TxAction action = new TxAction(voter, "eosio", "voteproducer", dataMap);
+		TxAction action = new TxAction(voter, "flon", "voteproducer", dataMap);
 		actions.add(action);
 		tx.setActions(actions);
 		// sgin

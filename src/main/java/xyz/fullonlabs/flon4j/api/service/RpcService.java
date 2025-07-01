@@ -16,7 +16,7 @@ import retrofit2.http.POST;
 
 /**
  * 
- * @author espritblock http://eblock.io
+ * @author fullonlabs https://fullonlabs.xyz
  *
  */
 public interface RpcService {

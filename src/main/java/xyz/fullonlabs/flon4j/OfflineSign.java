@@ -21,7 +21,7 @@ import xyz.fullonlabs.flon4j.ese.Ese;
 
 /**
  * 
- * @author espritblock http://eblock.io
+ * @author fullonlabs https://fullonlabs.xyz
  *
  */
 public class OfflineSign {
@@ -122,23 +122,23 @@ public class OfflineSign {
 		createMap.put("name", newAccount);
 		createMap.put("owner", owner);
 		createMap.put("active", active);
-		TxAction createAction = new TxAction(creator, "eosio", "newaccount", createMap);
+		TxAction createAction = new TxAction(creator, "flon", "newaccount", createMap);
 		actions.add(createAction);
-		// buyrap
-		Map<String, Object> buyMap = new LinkedHashMap<>();
-		buyMap.put("payer", creator);
-		buyMap.put("receiver", newAccount);
-		buyMap.put("bytes", buyRam);
-		TxAction buyAction = new TxAction(creator, "eosio", "buyrambytes", buyMap);
-		actions.add(buyAction);
+		// buyram
+		// Map<String, Object> buyMap = new LinkedHashMap<>();
+		// buyMap.put("payer", creator);
+		// buyMap.put("receiver", newAccount);
+		// buyMap.put("bytes", buyRam);
+		// TxAction buyAction = new TxAction(creator, "flonian", "buyrambytes", buyMap);
+		// actions.add(buyAction);
 		// sgin
 		String sign = Ecc.signTransaction(pk, new TxSign(signParam.getChainId(), tx));
 		// data parse
 		String accountData = Ese.parseAccountData(creator, newAccount, owner, active);
 		createAction.setData(accountData);
 		// data parse
-		String ramData = Ese.parseBuyRamData(creator, newAccount, buyRam);
-		buyAction.setData(ramData);
+		// String ramData = Ese.parseBuyRamData(creator, newAccount, buyRam);
+		// buyAction.setData(ramData);
 		// reset expiration
 		tx.setExpiration(dateFormatter.format(new Date(1000 * Long.parseLong(tx.getExpiration().toString()))));
 		return pushTransaction("none", tx, new String[] { sign });

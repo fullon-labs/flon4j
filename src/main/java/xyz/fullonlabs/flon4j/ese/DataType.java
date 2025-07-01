@@ -3,7 +3,7 @@ package xyz.fullonlabs.flon4j.ese;
 /**
  * DataType
  * 
- * @author espritblock http://eblock.io
+ * @author fullonlabs https://fullonlabs.xyz
  *
  */
 public enum DataType {

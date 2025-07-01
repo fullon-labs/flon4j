@@ -6,7 +6,7 @@ import xyz.fullonlabs.flon4j.api.vo.transaction.Transaction;
 
 /**
  * 
- * @author espritblock http://eblock.io
+ * @author fullonlabs https://fullonlabs.xyz
  *
  */
 public class OfflineTest {
@@ -52,7 +52,7 @@ public class OfflineTest {
 		// 交易信息
 		String content = "";
 		try {
-			content = sign.transfer(params, "5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3", "eosio.token",
+			content = sign.transfer(params, "5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3", "flonian.token",
 					"eeeeeeeeeeee", "555555555551", "372.0993 FLON", "test");
 			System.out.println(content);
 		} catch (Exception e) {

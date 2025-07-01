@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * 
- *  @author espritblock http://eblock.io
+ *  @author fullonlabs https://fullonlabs.xyz
  *
  */
 public class SignParam {

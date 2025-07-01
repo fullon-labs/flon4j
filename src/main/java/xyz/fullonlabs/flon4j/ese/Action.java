@@ -3,13 +3,13 @@ package xyz.fullonlabs.flon4j.ese;
 /**
  * Action
  * 
- * @author espritblock http://eblock.io
+ * @author fullonlabs https://fullonlabs.xyz
  *
  */
 public enum Action {
 
-	transfer("${precision},${quantity}@eosio.token"), account("account"), ram("ram"), delegate("${precision},${quantity}@eosio.token"), voteproducer("voteproducer"),
-	close("${precision},${quantity}@eosio.token");
+	transfer("${precision},${quantity}@flon.token"), account("account"), ram("ram"), delegate("${precision},${quantity}@flon.token"), voteproducer("voteproducer"),
+	close("${precision},${quantity}@flon.token");
 
 	private String code;
 

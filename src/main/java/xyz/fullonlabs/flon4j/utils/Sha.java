@@ -10,7 +10,7 @@ import javax.crypto.spec.SecretKeySpec;
 /**
  * SHA
  * 
- * @author espritblock http://eblock.io
+ * @author fullonlabs https://fullonlabs.xyz
  *
  */
 public class Sha {

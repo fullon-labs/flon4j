@@ -6,7 +6,7 @@ import xyz.fullonlabs.flon4j.utils.EException;
 /**
  * DataParam
  * 
- * @author espritblock http://eblock.io
+ * @author fullonlabs https://fullonlabs.xyz
  *
  */
 public class DataParam {

@@ -12,7 +12,7 @@ import xyz.fullonlabs.flon4j.utils.Sha;
 /**
  * Ecdsa
  * 
- * @author espritblock http://eblock.io
+ * @author fullonlabs https://fullonlabs.xyz
  *
  */
 public class Ecdsa {
@@ -168,7 +168,7 @@ public class Ecdsa {
 
 	/**
 	 * 
-	 * @author espritblock http://eblock.io
+	 * @author fullonlabs https://fullonlabs.xyz
 	 *
 	 */
 	public static class SignBigInt {

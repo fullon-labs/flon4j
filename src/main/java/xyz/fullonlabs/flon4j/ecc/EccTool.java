@@ -15,7 +15,7 @@ import xyz.fullonlabs.flon4j.utils.Sha;
 /**
  * Ecc
  * 
- * @author espritblock http://eblock.io
+ * @author fullonlabs https://fullonlabs.xyz
  *
  */
 public class EccTool {

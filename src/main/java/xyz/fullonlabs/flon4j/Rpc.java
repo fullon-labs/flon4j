@@ -309,34 +309,19 @@ public class Rpc {
 		createMap.put("active", active);
 		TxAction createAction = new TxAction(creator, "flon", "newaccount", createMap);
 		actions.add(createAction);
-		// buyrap
+		// buygas
 		Map<String, Object> buyMap = new LinkedHashMap<>();
 		buyMap.put("payer", creator);
 		buyMap.put("receiver", newAccount);
 		buyMap.put("bytes", buyRam);
 		TxAction buyAction = new TxAction(creator, "flon", "buyrambytes", buyMap);
 		actions.add(buyAction);
-		// buyrap
-		Map<String, Object> delMap = new LinkedHashMap<>();
-		delMap.put("from", creator);
-		delMap.put("receiver", newAccount);
-		delMap.put("stake_net_quantity", new DataParam(stakeNetQuantity, DataType.asset, Action.delegate).getValue());
-		delMap.put("stake_cpu_quantity", new DataParam(stakeCpuQuantity, DataType.asset, Action.delegate).getValue());
-		delMap.put("transfer", transfer);
-		TxAction delAction = new TxAction(creator, "flon", "delegatebw", delMap);
-		actions.add(delAction);
 		// // sgin
 		String sign = Ecc.signTransaction(pk, new TxSign(info.getChainId(), tx));
 		// data parse
 		String accountData = Ese.parseAccountData(creator, newAccount, owner, active);
 		createAction.setData(accountData);
-		// data parse
-		String ramData = Ese.parseBuyRamData(creator, newAccount, buyRam);
-		buyAction.setData(ramData);
-		// data parse
-		String delData = Ese.parseDelegateData(creator, newAccount, stakeNetQuantity, stakeCpuQuantity,
-				transfer.intValue());
-		delAction.setData(delData);
+
 		// reset expiration
 		tx.setExpiration(dateFormatter.format(new Date(1000 * Long.parseLong(tx.getExpiration().toString()))));
 		return pushTransaction("none", tx, new String[] { sign });
